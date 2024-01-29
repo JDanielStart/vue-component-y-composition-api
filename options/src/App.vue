@@ -1,18 +1,17 @@
 <script setup>
-  import Menus from "./components/Menus.vue";
+  import Modal from "./components/Modal.vue"
 </script>
 
 <template>
-  <button @click="show = !show">Menu</button>
-  <transition name="fade">
-    <Menus v-show="show"/>
-  </transition>
+  <div>
+    <Modal/>
+  </div>
 </template>
 
 <script>
   export default {
     name: "App",
-    components: {},
+    components: { Modal },
     data() {
       return {
         show: false,
@@ -23,13 +22,4 @@
 
 <style scoped>
 
-  .fade-enter-from,
-  .fade-leave-to {
-    opacity: 0;
-  }
-
-  .fade-leave-active,
-  .fade-enter-active {
-    transition: opacity 0.5s ease;
-  }
 </style>
