@@ -2,8 +2,8 @@
 <template>
     <div>
         <button @click="toggle">Modal</button>
-        //Sirve para indicar que una parte del codigo se renderice en otro sitio
-        //Asi si hace falta enviar un modal a otra zona se hace con esto
+        <!-- Sirve para indicar que una parte del codigo se renderice en otro sitio
+        Asi si hace falta enviar un modal a otra zona se hace con esto -->
         <teleport to='body'>
             <div v-show="show" class="modal">
                 <h1>Titulo</h1>
