@@ -5,12 +5,19 @@
 <template>
   <div>
     <div>{{ text }}</div>
+    <div>{{ algo }}</div>
   </div>
 </template>
 
 <script>
+
+  //Los mixins se usan en Vue2 pero es recomendable sustituirlos
+  //por composition API
+  import base from "@/mixins/base";
+
   export default {
     name: "App",
+    mixins: [base],
     data() {
       return {
         text: "Hola Vue",
