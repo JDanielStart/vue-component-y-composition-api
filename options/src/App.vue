@@ -3,35 +3,18 @@
 </script>
 
 <template>
-  <div>
-    <div>{{ text }}</div>
-    <div>{{ algo }}</div>
-  </div>
+  <UserRepositories :user="'Diana'"></UserRepositories>
 </template>
 
 <script>
 
-  //Los mixins se usan en Vue2 pero es recomendable sustituirlos
-  //por composition API
-  import base from "@/mixins/base";
+  import UserRepositories from "./components/UserRepositories.vue";
 
   export default {
     name: "App",
-    mixins: [base],
-    data() {
-      return {
-        text: "Hola Vue",
-      }
+    components: {
+      UserRepositories,
     },
-    beforeCreate() {
-      console.log("beforeCreate", this.$data, this.$el); //null null
-    },
-    created() {
-      console.log("created", this.$data, this.$el);//!null null
-    },
-    mounted() {
-      console.log("mounted", this.$data, this.$el);//!null !null
-    }
   }
 </script>
 
