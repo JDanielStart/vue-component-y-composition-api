@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <Home></Home>
+  <Home first-name="Diana" last-name="Martínez"></Home>
 </template>
 
 <script>
