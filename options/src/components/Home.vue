@@ -1,9 +1,10 @@
 <template>
     <div> {{ fullName }} </div>
+    <div>{{ username }}</div>
 </template>
 
 <script>
-    import { computed, toRefs } from 'vue';
+    import { computed, toRefs, inject } from 'vue';
 
     export default {
         //Sigue siendo obligatorio porque se pasa esto a setup
@@ -11,30 +12,24 @@
             firstName: String,
             lastName: String,
         },
-        //Aqui uso desestructuracion para elegir lo que quiero
-        //pero el objeto es context y accedo a la variable que necesito
-        //aunque context puede tener cualquier nombres siempre es
-        //el segundo argumento
         setup(props, {expose}) {
 
-            console.log(expose);
-
-            //toRefs es para hacer todo reactivo pero al final
-            //de este codigo hay un ejemplo para una sola propiedad
             const { firstName, lastName } = toRefs(props);
 
             const fullName = computed(() => {
                 return `${firstName.value} ${lastName.value}`;
             });
 
-            //Esta es la manera de permitir que
-            //accedan a variables del setupt desde fuera
+            const username = inject("username");
+
+
             expose({
                 fullName,
             });
 
             return {
-                fullName
+                fullName,
+                username,
             };
         }
     };
